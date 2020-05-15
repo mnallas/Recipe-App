@@ -77,17 +77,20 @@ $(document).ready(function () {
 
   // BUTTON TO GET PDF FILE
 
-  $("#pdf").on("click", function () {
-    window.open(`https://api.pdflayer.com/api/convert?access_key=4e0027132b927229545c6c2ab2dfd541&document_url=${window.location.href}&document_name=My_cart.pdf&page_siz=A4&margin_top=25&margin_bottom=25&margin_left=25&margin_right=25`, '_blank');
-    // console.log(window.location.href);
-    // $.ajax({
-    // url: `https://api.pdflayer.com/api/convert?access_key=4e0027132b927229545c6c2ab2dfd541&document_url=https://hedical.github.io/Recipe-App/Cart.html&document_name=My_cart.pdf&page_siz=A4&margin_top=25&margin_bottom=25&margin_left=25&margin_right=25`,
-    //   type: "GET",
-    //   dataType: "json",
-    // }).then(function (resp) {
-    //   console.log(resp)
-    // })
-  })
+  var doc = new jsPDF();
+  var specialElementHandlers = {
+    '.container': function (element, renderer) {
+      return true;
+    }
+  };
+
+  $('#pdf').click(function () {
+    doc.fromHTML($('body').html(), 30, 30, {
+      'width': 700,
+      'elementHandlers': specialElementHandlers
+    });
+    doc.save(`my-cart${moment()}.pdf`);
+  });
 
   // BUTTON TO CLEAR CART CONTENT
 
