@@ -1,14 +1,12 @@
 $(document).ready(function () {
-
   // GLOBAL SCOPE VARIBLES -----------------------
 
-
   var apiKeySpoonacular = "c9fe105f079040448d102d03d9a54c78";
-  var favoriteRecipes = [];
+  //   var favoriteRecipes =
+  //     JSON.parse(window.localStorage.getItem("favRecipe")) || [];
   var cart = JSON.parse(window.localStorage.getItem("myCart")) || [];
   var myRecipes = JSON.parse(window.localStorage.getItem("myRecipes")) || [];
-  var nbRecipesCart = (window.localStorage.getItem("sizeCart")) || 0;
-
+  var nbRecipesCart = window.localStorage.getItem("sizeCart") || 0;
 
   var ingredientsAPI = [];
 
@@ -31,10 +29,9 @@ $(document).ready(function () {
       displayCart[i] = cart[i].split("#");
       var indexDisplayCart = displayCart[i];
 
-      $("#recipeAmount").text(`You have ${nbRecipesCart} recipes in your cart`)
+      $("#recipeAmount").text(`You have ${nbRecipesCart} recipes in your cart`);
 
-      $("#table")
-        .append(`
+      $("#table").append(`
               <tr>
                 <th data-id="${i}" scope="col">${indexDisplayCart[1]} ${indexDisplayCart[2]}</th>
                 <th data-id="${i}" scope="col">${indexDisplayCart[0]}</th>
@@ -46,7 +43,6 @@ $(document).ready(function () {
               `);
     }
     // }
-
   }
 
   // Function to load on My_recipes page
@@ -77,20 +73,20 @@ $(document).ready(function () {
 
   // BUTTON TO GET PDF FILE
 
-  var doc = new jsPDF();
-  var specialElementHandlers = {
-    '.container': function (element, renderer) {
-      return true;
-    }
-  };
+  //   var doc = new jsPDF();
+  //   var specialElementHandlers = {
+  //     '.container': function (element, renderer) {
+  //       return true;
+  //     }
+  //   };
 
-  $('#pdf').click(function () {
-    doc.fromHTML($('body').html(), 30, 30, {
-      'width': 700,
-      'elementHandlers': specialElementHandlers
-    });
-    doc.save(`my-cart${moment()}.pdf`);
-  });
+  //   $('#pdf').click(function () {
+  //     doc.fromHTML($('body').html(), 30, 30, {
+  //       'width': 700,
+  //       'elementHandlers': specialElementHandlers
+  //     });
+  //     doc.save(`my-cart${moment()}.pdf`);
+  //   });
 
   // BUTTON TO CLEAR CART CONTENT
 
@@ -99,9 +95,9 @@ $(document).ready(function () {
     nbRecipesCart = 0;
     window.localStorage.setItem("sizeCart", 0);
     window.localStorage.setItem("myCart", JSON.stringify(cart));
-    $("#recipeAmount").text(`You have 0 recipes in your cart`)
-    $("#table").html("")
-  })
+    $("#recipeAmount").text(`You have 0 recipes in your cart`);
+    $("#table").html("");
+  });
 
   // BUTTON TO DELETE RECIPE on my_recipes.html
 
@@ -214,14 +210,14 @@ $(document).ready(function () {
         unit.push(response.extendedIngredients[i].unit);
         cart.push(
           ingredients[i] +
-          "#" +
-          amount[i] +
-          "#" +
-          "(" +
-          unit[i] +
-          ")" +
-          "#" +
-          recipeName
+            "#" +
+            amount[i] +
+            "#" +
+            "(" +
+            unit[i] +
+            ")" +
+            "#" +
+            recipeName
         );
       }
       cart.sort();
@@ -284,26 +280,32 @@ $(document).ready(function () {
   });
 
   // BUTTON TO ADD TO FAVORITE LIST on index.html
-
+  var myFaveRec = {};
   $(document).on("click", "#fav-btn", function () {
     var recipeName = $(this).attr("data-id");
+    console.log($(this));
+
     console.log(recipeName);
 
-    addFavorite(recipeName);
-    console.log(favoriteRecipes);
+    // if (favoriteRecipes.includes(recipeName)) {
+    //   console.log("already fav");
+    // } else {
+    //   favoriteRecipes.push(recipeName);
+    // }
+
+    // window.localStorage.setItem("favRecipe", JSON.stringify(favoriteRecipes));
+    // console.log(favoriteRecipes);
     $(this).attr("class", "btn btn-success btn-circle btn-sm");
   });
 
   // CHECKBOX TO STRIKE ITEMS on cart.html
 
   $(".form-check-input").click(function () {
-    var textLine = $(this).parent().parent().parent()
+    var textLine = $(this).parent().parent().parent();
     if ($(this).prop("checked") == true) {
-
       console.log("Checkbox is checked.");
       textLine.attr("class", "strike");
-    }
-    else if ($(this).prop("checked") == false) {
+    } else if ($(this).prop("checked") == false) {
       console.log("Checkbox is unchecked.");
       textLine.attr("class", "normal");
     }
@@ -312,7 +314,7 @@ $(document).ready(function () {
 
 // FUNCTIONS ---------------------------------
 
-// Function to display the recipe on the screen 
+// Function to display the recipe on the screen
 
 function displayRecipe(pic, name, time, servings, id) {
   $("#displayRecipe").prepend(`
@@ -337,13 +339,13 @@ function displayRecipe(pic, name, time, servings, id) {
 }
 
 // Function to add to favorite list (need to be improved by using for loop (instead of includes), to be able to remove from favorite list by using splice)
-function addFavorite(name) {
-  if (favoriteRecipes.includes(name)) {
-    console.log("already fav");
-  } else {
-    favoriteRecipes.push(name);
-  }
-}
+// function addFavorite(name) {
+//   if (favoriteRecipes.includes(name)) {
+//     console.log("already fav");
+//   } else {
+//     favoriteRecipes.push(name);
+//   }
+// }
 
 function renderInstructions(arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -370,9 +372,7 @@ $("#addIngredients").on("click", function (e) {
   displayIngredients.push(
     ammountInput + " " + unitInput + " " + ingredientsInput
   );
-  arrIngredients.push(
-    ingredientsInput + "#" + ammountInput + "#" + "(" + unitInput + ")"
-  );
+  arrIngredients.push(ingredientsInput + ammountInput + "(" + unitInput + ")");
   console.log(arrIngredients);
   $("#ingredientsInput").val("");
   $("#ammountInput").val("");
@@ -390,9 +390,8 @@ $("#addInstructions").on("click", function (e) {
 });
 
 function generateRecipe(name, time, ingredients, instructions) {
-  $(
-    "#Preview"
-  ).prepend(`<div id="recipeCard" class="card m-2" style="width: 18rem;" >
+  $("#Preview")
+    .prepend(`<div id="recipeCard" class="card m-2" style="width: 18rem;" >
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">Time to Cook : ${time} min</p>
@@ -423,7 +422,6 @@ $("#previewButton").on("click", function () {
   $("#cookTimeInput").val("");
 });
 
-
 // REUSABLE FUNCTION TO SHOW A NOTIFICATION ON ACTION
 
 function showAlert(str, type) {
@@ -450,5 +448,5 @@ $("#saveLocalStorage").on("click", function () {
   $("#Preview").html("");
 });
 
-  // FOR INGREDIENTS : https://api.spoonacular.com/recipes/716429/information?includeNutrition=false
-  // FOR SEARCH : https://api.spoonacular.com/recipes/search?apiKey=c9fe105f079040448d102d03d9a54c78&query=burger
+// FOR INGREDIENTS : https://api.spoonacular.com/recipes/716429/information?includeNutrition=false
+// FOR SEARCH : https://api.spoonacular.com/recipes/search?apiKey=c9fe105f079040448d102d03d9a54c78&query=burger
