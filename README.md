@@ -1,53 +1,161 @@
-# Project 1
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-## Application Requirements
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-- Must use at least two server-side APIs
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/mnallas/Recipe-App">
+    <img src="Lulu Favicon.png" alt="Logo" width="80" height="80">
+  </a>
 
-- Must use a CSS framework _other than_ Bootstrap
+  <h3 align="center">Lulu's Recipe</h3>
 
-- Must be interactive (i.e: accept and respond to user input)
+  <p align="center">
+    allows you to search, create, collect, and print recipes. 
+    <br />
+    <a href="https://github.com/mnallas/Recipe-App"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://mnallas.github.io/Recipe-App/">View Demo</a>
+    ·
+    <a href="https://github.com/mnallas/Recipe-App/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/mnallas/Recipe-App/issues">Request Feature</a>
+  </p>
+</p>
 
-- Use at least one new third-party API
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
-- Must have a polished UI
+<!-- ABOUT THE PROJECT -->
 
-- Must meet good quality coding standards
+## About The Project
 
-- Does not use alerts, confirms or prompts (look into _modals_)
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-- Must be deployed to GitHub Pages
+### Built With
 
-## Presentation Requirements
+- [Jquery](https://code.jquery.com/)
+- [HTML]()
+- [CSS]()
 
-Use this [project presentation template](https://docs.google.com/presentation/d/1_u8TKy5zW5UlrVQVnyDEZ0unGI2tjQPDEpA0FNuBKAw/edit?usp=sharing) to address the following:
+<!-- GETTING STARTED -->
 
-- Elevator pitch: a one minute description of your application
+## Getting Started
 
-- Concept: What is your user story? What was your motivation for development?
+To get a local copy up and running follow these simple steps.
 
-- Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
+### Prerequisites
 
-- Demo: Show your stuff!
+This is an example of how to list things you need to use the software and how to install them.
 
-- Directions for Future Development
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-- Links to the deployed application and the GitHub repository
+### Installation
 
-## Grading Metrics
+1. Clone the repo
+   ```sh
+   git clone https://github.com/mnallas/Recipe-App.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
 
-| Metric        | Weight |
-| ------------- | ------ |
-| Concept       | 10%    |
-| Design        | 20%    |
-| Functionality | 30%    |
-| Collaboration | 30%    |
-| Presentation  | 10%    |
+<!-- USAGE EXAMPLES -->
 
-## Submission on BCS
+## Usage
 
-You are required to submit the following:
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-- The URL of the deployed application
+_For more examples, please refer to the [Documentation](https://example.com)_
 
-- The URL of the GitHub repository
+<!-- ROADMAP -->
+
+## Roadmap
+
+See the [open issues](https://github.com/mnallas/Recipe-App/issues) for a list of proposed features (and known issues).
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- CONTACT -->
+
+## Contact
+
+Myhkas Nallas - mmyhkas@gmail.com
+
+Project Link: [https://github.com/mnallas/Recipe-App](https://github.com/mnallas/Recipe-App)
+
+<!-- ACKNOWLEDGEMENTS -->
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/mnallas/Recipe-App.svg?style=for-the-badge
+[contributors-url]: https://github.com/mnallas/Recipe-App/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/mnallas/Recipe-App.svg?style=for-the-badge
+[forks-url]: https://github.com/mnallas/Recipe-App/network/members
+[stars-shield]: https://img.shields.io/github/stars/mnallas/Recipe-App.svg?style=for-the-badge
+[stars-url]: https://github.com/mnallas/Recipe-App/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mnallas/Recipe-App.svg?style=for-the-badge
+[issues-url]: https://github.com/mnallas/Recipe-App/issues
+[license-shield]: https://img.shields.io/github/license/mnallas/Recipe-App.svg?style=for-the-badge
+[license-url]: https://github.com/mnallas/Recipe-App/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/myhkas-nallas-15980416a/
+[product-screenshot]: homepage.png
